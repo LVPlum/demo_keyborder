@@ -1,0 +1,111 @@
+html{
+  background: #efefef;
+}
+body{
+  font-family: 楷体;
+}
+header .title{
+  text-align: center;
+  font-size: .3rem;
+}
+header .title:before{
+  content: "";
+  background: url("../icon.png") no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+section {
+  width: 100%;
+  margin-top: 10px;
+}
+section .pay{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid;
+  border-color: white;
+  background: white;
+  border-radius: 2px;
+}
+section .pay:after{
+  content: "￥";
+  font-size: .3rem;
+}
+section .pay input{
+  width: 80%;
+  padding: 10px;
+  border: none;
+}
+.boxShadow{
+  transition:border linear .2s,box-shadow linear .5s;
+  -moz-transition:border linear .2s,-moz-box-shadow linear .5s;
+  -webkit-transition:border linear .2s,-webkit-box-shadow linear .5s;
+  outline:none;
+  border-color:rgb(241, 150, 18);
+  box-shadow:0 0 8px rgb(241, 150, 18);
+  -moz-box-shadow:0 0 8px rgb(241, 150, 18);
+  -webkit-box-shadow:0 0 8px rgb(241, 150, 18);
+}
+.keyboard{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: none;
+}
+.keyboard .warp{
+  width: 100%;
+  background: white;
+  position: relative;
+  font-size: .4rem;
+}
+.keyboard .warp .row{
+  display: flex;
+}
+.keyboard .warp .row span{
+  display: inline-block;
+  width: 20%;
+  height: 25%;
+  flex: 1;
+  line-height: 1rem;
+  text-align: center;
+  border-top: 1px solid rgba(128, 128, 128, 0.34);
+}
+.keyboard .warp .row .paybtn{
+  position: relative;
+}
+.special{
+  position: absolute;
+  top: -.8rem;
+  line-height: 1;
+  left: 25%;
+  color: white
+}
+.keyboard .warp .row .dele:before{
+  content: "";
+  display: inline-block;
+  background: url("../dele.png") no-repeat;
+  background-size: 100%;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+.keyboard .warp .row .hide:before{
+  content: "";
+  display: inline-block;
+  background: url("../hide.png") no-repeat;
+  background-size: 100%;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+.border_r{border-right: 1px solid rgba(128, 128, 128, 0.34)}
+.border_b{border-bottom: 1px solid rgba(128, 128, 128, 0.34)}
+.keyboard .warp .row span.border_bn{border-top: 1px solid #cccccc}
+.border_bn_s{border-top: 1px solid #ffb43e !important;}
+.bgS{background: #cccccc}
+.bgS_s{background: #ffb43e}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <title>蒸食膳科技店</title>
+  <link rel="stylesheet" type="text/css" href="css/base.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/rem.js" type="text/javascript"></script>
+
+</head>
+<body>
+  <header>
+    <h1 class="title">蒸食膳科技店</h1>
+  </header>
+  <section>
+    <div class="pay">
+      <input readonly type="text" placeholder="输入消费金额">
+    </div>
+  </section>
+  <section class="keyboard">
+    <div class="warp">
+      <div class="row">
+        <span class="on border_r">1</span>
+        <span class="on border_r">2</span>
+        <span class="on border_r">3</span>
+        <span class="on dele"></span>
+      </div>
+      <div class="row">
+        <span class="on border_r">4</span>
+        <span class="on border_r">5</span>
+        <span class="on border_r">6</span>
+        <span class="on paybtn bgS"><i style="visibility: hidden">1</i></span>
+      </div>
+      <div class="row">
+        <span class="on border_r">7</span>
+        <span class="on border_r">8</span>
+        <span class="on border_r">9</span>
+        <span class="on paybtn border_bn bgS"><i style="visibility: hidden">1</i></span>
+      </div>
+      <div class="row border_b">
+        <span class="on hide border_r"></span>
+        <span class="on border_r">0</span>
+        <span class="on border_r">.</span>
+        <span class="on paybtn border_bn bgS"><i style="visibility: hidden">1</i><p class="special">确认<br/>支付</p></span>
+      </div>
+    </div>
+
+  </section>
+  <script type="text/javascript" src="js/jquery2.1.min.js"></script>
+  <script>
+    $(".pay input").click(function(){
+      $(this).parent().addClass("boxShadow");
+      $(".keyboard").css({'display':"block"});
+      var num="";
+      $(".keyboard .warp .row").on('click','.on',function(){
+        if($(this).hasClass("dele")){
+          num=num.substring(0,num.length-1);
+        }
+        else if($(this).hasClass("hide")){
+          $(".keyboard").css({'display':"none"});
+          $(".pay input").parent().removeClass("boxShadow");
+        }
+        else if($(this).hasClass("paybtn")){
+          if(num){
+            console.log(num);
+          }else {
+            console.log("null")
+          }
+        }
+        else {
+          num += $(this).text();
+        }
+
+        $(".pay input").val(num);
+        if($(".pay input").val()){
+          $(".bgS").addClass('bgS_s');
+          $(".border_bn").addClass('border_bn_s');
+        }else {
+          $(".bgS").removeClass('bgS_s');
+          $(".border_bn").removeClass('border_bn_s');
+        }
+      });
+    });
+
+  </script>
+</body>
+</html>
