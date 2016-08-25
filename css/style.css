@@ -65,12 +65,17 @@ section .pay input{
 }
 .keyboard .warp .row{
   display: flex;
+  display: -moz-box;		 /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  display: -webkit-flex;
 }
 .keyboard .warp .row span{
   display: inline-block;
   width: 20%;
   height: 25%;
   flex: 1;
+  -ms-flex: 1;
+  -webkit-flex: 1;
   line-height: 1rem;
   text-align: center;
   border-top: 1px solid rgba(128, 128, 128, 0.34);
