@@ -11,14 +11,21 @@
 
 </head>
 <body>
+  <!-- header start-->
   <header>
     <h1 class="title">蒸食膳科技店</h1>
   </header>
+  <!-- header end-->
+
+  <!-- content start-->
   <section>
     <div class="pay">
       <input readonly type="text" placeholder="输入消费金额">
     </div>
   </section>
+  <!-- content end-->
+
+  <!-- keyboard start-->
   <section class="keyboard">
     <div class="warp">
       <div class="row">
@@ -46,34 +53,47 @@
         <span class="on paybtn border_bn bgS"><i style="visibility: hidden">1</i><p class="special">确认<br/>支付</p></span>
       </div>
     </div>
-
   </section>
+  <!-- keyboard end !-->
   <script type="text/javascript" src="js/jquery2.1.min.js"></script>
   <script>
     $(".pay input").click(function(){
+
+      //焦点显示，弹出定制键盘
       $(this).parent().addClass("boxShadow");
       $(".keyboard").css({'display':"block"});
-      var num="";
+
+      var num="";//存放金额
+
+      /* 软键盘的绑定点击事件 */
+
       $(".keyboard .warp .row").on('click','.on',function(){
+        /* 删除按钮 */
         if($(this).hasClass("dele")){
           num=num.substring(0,num.length-1);
         }
+        /* 隐藏按钮 */
         else if($(this).hasClass("hide")){
           $(".keyboard").css({'display':"none"});
           $(".pay input").parent().removeClass("boxShadow");
         }
+        /* 支付按钮 */
         else if($(this).hasClass("paybtn")){
+          /* 如果有值Post到后台，这里是demo，没有写上 */
           if(num){
             console.log(num);
           }else {
             console.log("null")
           }
         }
+        /* 其他的按钮将数字存放到num */
         else {
           num += $(this).text();
         }
 
-        $(".pay input").val(num);
+        $(".pay input").val(num);//将num放进input显示
+
+        /* input输入框里有值改变pay按钮的状态 */
         if($(".pay input").val()){
           $(".bgS").addClass('bgS_s');
           $(".border_bn").addClass('border_bn_s');
